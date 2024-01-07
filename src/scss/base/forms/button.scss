@@ -2,13 +2,35 @@
 // Сніппет (HTML): btn
 
 .button {
-	display: inline-flex;
-	padding: 0px 0px;
+	max-width: toRem(222);
+	@include adaptiveValue("padding-top", 22, 16, 0, $containerBigWidth, 768);
+	@include adaptiveValue("padding-bottom", 22, 16, 0, $containerBigWidth, 768);
+	padding-left: toRem(22);
+	padding-right: toRem(22);
+	background-color: $colorGreen;
+	border-radius: toRem(10);
+	color: inherit;
+	font-family: "Lato";
+	font-weight: 500;
+	transition: all 0.3s;
 	@media (any-hover: hover) {
 		&:hover {
+			background-color: $colorGreenHover;
 		}
 	}
-	&--fw {
-		width: 100%;
+	// .button--border
+	&--border {
+		padding: toRem(22) toRem(44);
+		background-color: transparent;
+		border: 1px solid #fff;
+		@include adaptiveValue("padding-top", 22, 16, 0, $containerBigWidth, 768);
+		@include adaptiveValue("padding-bottom", 22, 16, 0, $containerBigWidth, 768);
+		@include adaptiveValue("padding-left", 44, 25, 0, $containerBigWidth, 768);
+		@include adaptiveValue("padding-right", 44, 25, 0, $containerBigWidth, 768);
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+		}
 	}
 }

@@ -1,9 +1,94 @@
 //====================================================================================================
+.header {
+	@include adaptiveValue("padding-bottom", 60, 30, 0, $containerBigWidth);
+	@include adaptiveValue("padding-top", 60, 30, 0, $containerBigWidth);
+
+	// .header__container-big
+	&__container-big {
+		display: grid;
+		grid-template-columns: minmax(auto, toRem(301)) auto minmax(auto, toRem(301));
+		align-items: center;
+		column-gap: toRem(25);
+		@media (max-width: $pc) {
+			grid-template-columns: repeat(3, auto);
+		}
+	}
+	// .header__logo
+	&__logo {
+		color: #fff;
+		font-family: "Lato";
+		font-weight: 500;
+		@include adaptiveValue("font-size", 36, 20);
+	}
+	// .header__menu
+	&__menu {
+		flex: 1 1 auto;
+	}
+	// .header__actions
+	&__actions {
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-start;
+		column-gap: toRem(16);
+	}
+	// .header__button
+	&__button {
+	}
+	// .header__icon
+	&__icon {
+	}
+}
+.menu {
+	// .menu__body
+	&__body {
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		justify-content: center;
+		row-gap: toRem(10);
+		flex-wrap: wrap;
+		@include adaptiveValue("column-gap", 44, 20, 0, $containerWidth, 768);
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		transition: all 0.3s;
+		position: relative;
+		@media (min-width: $tablet) {
+			padding-bottom: toRem(3);
+			&::after {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: toRem(2);
+				bottom: 0;
+				left: 0;
+				background-color: $colorGreen;
+				transition: all 0.3s;
+			}
+			@media (any-hover: hover) {
+				&:hover {
+					&::after {
+						width: 100%;
+					}
+				}
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $colorGreen;
+			}
+		}
+	}
+}
 
 //====================================================================================================
 
 //Burger
-/*
+
 .icon-menu {
 	display: none;
 	@media (max-width: $mobile) {
@@ -53,4 +138,3 @@
 		}
 	}
 }
-*/
